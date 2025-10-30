@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTML & CSS Grundlagen Quiz</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: #0066cc;
+    }
+
+    .quiz-container {
+      max-width: 700px;
+      background: #fff;
+      padding: 25px;
+      border-radius: 15px;
+      margin: 20px auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .question {
+      margin-bottom: 20px;
+    }
+
+    .question h3 {
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      cursor: pointer;
+    }
+
+    button {
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      background-color: #0052a3;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .good { color: green; }
+    .medium { color: #e6b800; }
+    .bad { color: red; }
+  </style>
+</head>
+<body>
+  <h1>🧩 HTML & CSS Grundlagen Quiz</h1>
+
+  <div class="quiz-container">
+    <form id="quizForm">
+      <!-- HTML -->
+      <div class="question">
+        <h3>1️⃣ Welche Tags verwendet man, um einen Absatz zu erstellen?</h3>
+        <label><input type="radio" name="q1" value="b"> &lt;p&gt;</label>
+        <label><input type="radio" name="q1" value="a"> &lt;div&gt;</label>
+        <label><input type="radio" name="q1" value="c"> &lt;text&gt;</label>
+        <label><input type="radio" name="q1" value="d"> &lt;paragraph&gt;</label>
+      </div>
+
+      <div class="question">
+        <h3>2️⃣ Welche Liste ist geordnet (nummeriert)?</h3>
+        <label><input type="radio" name="q2" value="b"> &lt;ol&gt;&lt;li&gt;Erstes&lt;/li&gt;&lt;li&gt;Zweites&lt;/li&gt;&lt;/ol&gt;</label>
+        <label><input type="radio" name="q2" value="a"> &lt;ul&gt;&lt;li&gt;Erstes&lt;/li&gt;&lt;li&gt;Zweites&lt;/li&gt;&lt;/ul&gt;</label>
+        <label><input type="radio" name="q2" value="c"> &lt;list&gt;&lt;li&gt;Erstes&lt;/li&gt;&lt;li&gt;Zweites&lt;/li&gt;&lt;/list&gt;</label>
+        <label><input type="radio" name="q2" value="d"> &lt;li&gt;&lt;ol&gt;Erstes&lt;/ol&gt;&lt;/li&gt;</label>
+      </div>
+
+      <div class="question">
+        <h3>3️⃣ Was bewirkt dieser HTML-Code?</h3>
+        <pre>&lt;a href="https://www.wikipedia.org"&gt;Wikipedia&lt;/a&gt;</pre>
+        <label><input type="radio" name="q3" value="b"> Erstellt einen Link zu Wikipedia.</label>
+        <label><input type="radio" name="q3" value="a"> Zeigt ein Bild von Wikipedia.</label>
+        <label><input type="radio" name="q3" value="c"> Öffnet ein Pop-up.</label>
+        <label><input type="radio" name="q3" value="d"> Macht den Text fett.</label>
+      </div>
+
+      <div class="question">
+        <h3>4️⃣ Wie bindet man ein Bild ein?</h3>
+        <label><input type="radio" name="q4" value="a"> &lt;img src="bild.jpg" alt="Beschreibung"&gt;</label>
+        <label><input type="radio" name="q4" value="b"> &lt;image&gt;bild.jpg&lt;/image&gt;</label>
+        <label><input type="radio" name="q4" value="c"> &lt;picture&gt;bild.jpg&lt;/picture&gt;</label>
+        <label><input type="radio" name="q4" value="d"> &lt;src img="bild.jpg"&gt;</label>
+      </div>
+
+      <!-- CSS -->
+      <div class="question">
+        <h3>5️⃣ Wie ändert man die Textfarbe aller Absätze?</h3>
+        <label><input type="radio" name="q5" value="b"> color</label>
+        <label><input type="radio" name="q5" value="a"> text-color</label>
+        <label><input type="radio" name="q5" value="c"> font-color</label>
+        <label><input type="radio" name="q5" value="d"> text-style</label>
+      </div>
+
+      <div class="question">
+        <h3>6️⃣ Welche Eigenschaft legt die Schriftart fest?</h3>
+        <label><input type="radio" name="q6" value="a"> font-family</label>
+        <label><input type="radio" name="q6" value="b"> font</label>
+        <label><input type="radio" name="q6" value="c"> text-style</label>
+        <label><input type="radio" name="q6" value="d"> font-type</label>
+      </div>
+
+      <div class="question">
+        <h3>7️⃣ Welche CSS-Eigenschaft bestimmt den Abstand zwischen Rahmen und Inhalt?</h3>
+        <label><input type="radio" name="q7" value="b"> padding</label>
+        <label><input type="radio" name="q7" value="a"> margin</label>
+        <label><input type="radio" name="q7" value="c"> border</label>
+        <label><input type="radio" name="q7" value="d"> space</label>
+      </div>
+
+      <!-- HTML + CSS -->
+      <div class="question">
+        <h3>8️⃣ Was bewirkt der folgende Code?</h3>
+        <pre>&lt;p class="wichtig"&gt;Lies mich!&lt;/p&gt;
+.wichtig { color: red; }</pre>
+        <label><input type="radio" name="q8" value="b"> Der Text „Lies mich!“ wird rot.</label>
+        <label><input type="radio" name="q8" value="a"> Nichts, Klassen funktionieren nur mit IDs.</label>
+        <label><input type="radio" name="q8" value="c"> Der Text wird fett.</label>
+        <label><input type="radio" name="q8" value="d"> Der Text verschwindet.</label>
+      </div>
+
+      <div class="question">
+        <h3>9️⃣ Wie spricht man ein Element mit der ID „header“ an?</h3>
+        <label><input type="radio" name="q9" value="c"> #header { ... }</label>
+        <label><input type="radio" name="q9" value="a"> .header { ... }</label>
+        <label><input type="radio" name="q9" value="b"> header { ... }</label>
+        <label><input type="radio" name="q9" value="d"> %header { ... }</label>
+      </div>
+
+      <div class="question">
+        <h3>🔟 Was ist der Vorteil, CSS in einer externen Datei zu speichern?</h3>
+        <label><input type="radio" name="q10" value="b"> Das Design kann auf mehreren Seiten wiederverwendet werden.</label>
+        <label><input type="radio" name="q10" value="a"> HTML wird schneller geladen.</label>
+        <label><input type="radio" name="q10" value="c"> HTML funktioniert nur mit externem CSS.</label>
+        <label><input type="radio" name="q10" value="d"> Man braucht kein &lt;style&gt;-Tag mehr.</label>
+      </div>
+
+      <button type="button" onclick="checkAnswers()">Auswerten</button>
+    </form>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function checkAnswers() {
+      const correct = {
+        q1: "b", q2: "b", q3: "b", q4: "a",
+        q5: "b", q6: "a", q7: "b", q8: "b",
+        q9: "c", q10: "b"
+      };
+
+      let score = 0;
+      for (let key in correct) {
+        const selected = document.querySelector(`input[name="${key}"]:checked`);
+        if (selected && selected.value === correct[key]) score++;
+      }
+
+      const result = document.getElementById("result");
+      let feedback = "";
+      if (score >= 9) feedback = `<span class="good"> Sehr gut! ${score}/10 Punkte</span> – Du beherrschst die Grundlagen!`;
+      else if (score >= 6) feedback = `<span class="medium"> Gut! ${score}/10 Punkte</span> – Kleine Lücken, aber du bist auf gutem Weg.`;
+      else feedback = `<span class="bad" ${score}/10 Punkte</span> – Übe nochmal die Grundlagen zu HTML und CSS.`;
+
+      result.innerHTML = feedback;
+    }
+  </script>
+</body>
+</html>
