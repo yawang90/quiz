@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HTML & CSS Quiz</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>💻 HTML & CSS Selbsttest</title>
   <style>
     body {
       font-family: "Segoe UI", Arial, sans-serif;
@@ -22,7 +22,7 @@
       background: white;
       border-radius: 12px;
       padding: 20px 30px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
     .question {
       font-weight: 600;
@@ -75,7 +75,12 @@
     const quizData = [
       {
         question: "1. Aus welchen zwei Hauptteilen besteht ein HTML-Dokument?",
-        answers: ["<header> und <footer>", "<head> und <body>", "<div> und <span>", "<title> und <link>"],
+        answers: [
+          "<header> und <footer>",
+          "<head> und <body>",
+          "<div> und <span>",
+          "<title> und <link>"
+        ],
         correct: 1
       },
       {
@@ -154,12 +159,13 @@
         correct: 1
       },
       {
-        question: '12. Welche CSS-Regel gilt nur für das Element mit id="main-content"?',
+        question:
+          '12. Welche CSS-Regel gilt nur für das Element mit id="main-content"?',
         answers: [
-          '.main-content { font-size: 16px; }',
-          'main-content { font-size: 16px; }',
-          '#main-content { font-size: 16px; }',
-          '<main-content> { font-size: 16px; }'
+          ".main-content { font-size: 16px; }",
+          "main-content { font-size: 16px; }",
+          "#main-content { font-size: 16px; }",
+          "<main-content> { font-size: 16px; }"
         ],
         correct: 2
       },
@@ -194,16 +200,19 @@
 
     function loadQuiz() {
       const form = document.createElement("form");
+
       quizData.forEach((q, index) => {
         const qDiv = document.createElement("div");
         qDiv.classList.add("question-block");
         qDiv.innerHTML = `
           <div class="question">${q.question}</div>
           <div class="answers">
-            ${q.answers.map(
-              (a, i) =>
-                `<label><input type="radio" name="q${index}" value="${i}"> ${a}</label>`
-            ).join("")}
+            ${q.answers
+              .map(
+                (a, i) =>
+                  `<label><input type="radio" name="q${index}" value="${i}"> ${a}</label>`
+              )
+              .join("")}
           </div>
         `;
         form.appendChild(qDiv);
@@ -229,7 +238,8 @@
       questionBlocks.forEach((block, i) => {
         const selected = block.querySelector("input[type='radio']:checked");
         const labels = block.querySelectorAll("label");
-        labels.forEach(l => l.classList.remove("correct", "incorrect"));
+        labels.forEach((l) => l.classList.remove("correct", "incorrect"));
+
         if (selected) {
           const answerIndex = parseInt(selected.value);
           if (answerIndex === quizData[i].correct) {
@@ -244,8 +254,7 @@
         }
       });
 
-      document.getElementById("result").textContent =
-        `✅ Du hast ${score} von ${quizData.length} Fragen richtig beantwortet.`;
+      document.getElementById("result").textContent = `✅ Du hast ${score} von ${quizData.length} Fragen richtig beantwortet.`;
     }
 
     loadQuiz();
