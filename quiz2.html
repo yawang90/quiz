@@ -1,92 +1,261 @@
-<script>
-  const quizData = [
-    {
-      question: "1. Aus welchen zwei Hauptteilen besteht ein HTML-Dokument?",
-      answers: [
-        "<header> und <footer>",
-        "<head> und <body>",
-        "<div> und <span>",
-        "<title> und <link>"
-      ],
-      correct: 1
-    },
-    // ... (rest of your questions unchanged)
-  ];
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTML & CSS Selbsttest</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background-color: #f9fafb;
+      margin: 0;
+      padding: 20px;
+      color: #111827;
+    }
+    h1 {
+      text-align: center;
+      color: #1f2937;
+    }
+    .quiz-container {
+      max-width: 800px;
+      margin: 20px auto;
+      background: white;
+      border-radius: 12px;
+      padding: 20px 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .question {
+      font-weight: 600;
+      margin: 15px 0 10px;
+    }
+    .answers label {
+      display: block;
+      padding: 8px 12px;
+      margin: 4px 0;
+      border-radius: 8px;
+      background-color: #f3f4f6;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-family: Consolas, "Courier New", monospace;
+    }
+    .answers label:hover {
+      background-color: #e5e7eb;
+    }
+    button {
+      margin-top: 20px;
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #1d4ed8;
+    }
+    #result {
+      margin-top: 25px;
+      font-size: 18px;
+      font-weight: 600;
+      text-align: center;
+    }
+    .correct {
+      background-color: #d1fae5 !important;
+    }
+    .incorrect {
+      background-color: #fee2e2 !important;
+    }
+    code {
+      font-family: Consolas, "Courier New", monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>💻 HTML & CSS Selbsttest</h1>
+  <div class="quiz-container" id="quiz"></div>
 
-  const quizContainer = document.getElementById("quiz");
+  <script>
+    const quizData = [
+      {
+        question: "1. Aus welchen zwei Hauptteilen besteht ein HTML-Dokument?",
+        answers: [
+          "<header> und <footer>",
+          "<head> und <body>",
+          "<div> und <span>",
+          "<title> und <link>"
+        ],
+        correct: 1
+      },
+      {
+        question: "2. Wofür wird das <head>-Element verwendet?",
+        answers: [
+          "Es zeigt den Hauptinhalt an",
+          "Es enthält Metadaten und Links zu CSS/JS-Dateien",
+          "Es erstellt die Navigation",
+          "Es fügt ein Header-Bild hinzu"
+        ],
+        correct: 1
+      },
+      {
+        question: "3. Welches Tag enthält den sichtbaren Inhalt der Webseite?",
+        answers: ["<html>", "<meta>", "<body>", "<head>"],
+        correct: 2
+      },
+      {
+        question: "4. Welches Tag macht Text fett?",
+        answers: ["<strong> oder <b>", "<em>", "<i>", "<mark>"],
+        correct: 0
+      },
+      {
+        question: "5. Wie schreibt man Text kursiv?",
+        answers: ["<italic>", "<em> oder <i>", "<italics>", "<bold>"],
+        correct: 1
+      },
+      {
+        question: "6. Wie erstellt man eine Überschrift der Ebene 3?",
+        answers: ["<heading3>", "<h3>", "<h3/>", "<title3>"],
+        correct: 1
+      },
+      {
+        question: "7. Welches Attribut definiert das Ziel eines Links?",
+        answers: ["src", "alt", "href", "link"],
+        correct: 2
+      },
+      {
+        question: "8. Wie verlinkst du von index.html auf pages/about.html?",
+        answers: [
+          '<a href="pages/about.html">About</a>',
+          '<a href="/about.html">About</a>',
+          '<a src="pages/about.html">About</a>',
+          '<a href="index.html/about.html">About</a>'
+        ],
+        correct: 0
+      },
+      {
+        question: '9. Wie weist man einem Absatz die CSS-Klasse "highlight" zu?',
+        answers: [
+          '<p id="highlight">...</p>',
+          '<p style="highlight">...</p>',
+          '<p class="highlight">...</p>',
+          '<p css="highlight">...</p>'
+        ],
+        correct: 2
+      },
+      {
+        question: '10. Wie wird in CSS eine Klasse "highlight" angesprochen?',
+        answers: [
+          'highlight { color: yellow; }',
+          '.highlight { color: yellow; }',
+          '#highlight { color: yellow; }',
+          '<highlight> { color: yellow; }'
+        ],
+        correct: 1
+      },
+      {
+        question: "11. Was ist der Unterschied zwischen class und id?",
+        answers: [
+          "Classes dürfen nur einmal verwendet werden, IDs mehrfach",
+          "Classes können mehrfach verwendet werden, IDs sind eindeutig",
+          "Beide sind gleich",
+          "IDs sind für CSS, Classes für HTML"
+        ],
+        correct: 1
+      },
+      {
+        question: '12. Welche CSS-Regel gilt nur für das Element mit id="main-content"?',
+        answers: [
+          ".main-content { font-size: 16px; }",
+          "main-content { font-size: 16px; }",
+          "#main-content { font-size: 16px; }",
+          "<main-content> { font-size: 16px; }"
+        ],
+        correct: 2
+      },
+      {
+        question: "13. In welcher Reihenfolge stehen die wichtigsten HTML-Tags?",
+        answers: [
+          "<html>, <body>, <head>",
+          "<head>, <html>, <body>",
+          "<html>, <head>, <body>",
+          "<body>, <head>, <html>"
+        ],
+        correct: 2
+      }
+    ];
 
-  // ✅ Escape HTML special characters safely
-  function escapeHTML(str) {
-    return str
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;");
-  }
+    const quizContainer = document.getElementById("quiz");
 
-  function loadQuiz() {
-    quizContainer.innerHTML = ""; // clear old content
+    function escapeHTML(str) {
+      return str
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+    }
 
-    const form = document.createElement("form");
+    function loadQuiz() {
+      quizContainer.innerHTML = ""; // clear old content
+      const form = document.createElement("form");
 
-    quizData.forEach((q, index) => {
-      const qDiv = document.createElement("div");
-      qDiv.classList.add("question-block");
+      quizData.forEach((q, index) => {
+        const qDiv = document.createElement("div");
+        qDiv.classList.add("question-block");
 
-      // Use escaped text
-      qDiv.innerHTML = `
-        <div class="question">${escapeHTML(q.question)}</div>
-        <div class="answers">
-          ${q.answers
-            .map(
-              (a, i) =>
-                `<label><input type="radio" name="q${index}" value="${i}"> ${escapeHTML(a)}</label>`
-            )
-            .join("")}
-        </div>
-      `;
+        qDiv.innerHTML = `
+          <div class="question">${escapeHTML(q.question)}</div>
+          <div class="answers">
+            ${q.answers
+              .map(
+                (a, i) =>
+                  `<label><input type="radio" name="q${index}" value="${i}"> <code>${escapeHTML(a)}</code></label>`
+              )
+              .join("")}
+          </div>
+        `;
+        form.appendChild(qDiv);
+      });
 
-      form.appendChild(qDiv);
-    });
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.textContent = "Auswerten";
+      btn.onclick = checkAnswers;
+      form.appendChild(btn);
 
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.textContent = "Auswerten";
-    btn.onclick = checkAnswers;
-    form.appendChild(btn);
+      const resultDiv = document.createElement("div");
+      resultDiv.id = "result";
+      form.appendChild(resultDiv);
 
-    const resultDiv = document.createElement("div");
-    resultDiv.id = "result";
-    form.appendChild(resultDiv);
+      quizContainer.appendChild(form);
+    }
 
-    quizContainer.appendChild(form);
-  }
+    function checkAnswers() {
+      let score = 0;
+      const questionBlocks = document.querySelectorAll(".question-block");
 
-  function checkAnswers() {
-    let score = 0;
-    const questionBlocks = document.querySelectorAll(".question-block");
+      questionBlocks.forEach((block, i) => {
+        const selected = block.querySelector("input[type='radio']:checked");
+        const labels = block.querySelectorAll("label");
+        labels.forEach((l) => l.classList.remove("correct", "incorrect"));
 
-    questionBlocks.forEach((block, i) => {
-      const selected = block.querySelector("input[type='radio']:checked");
-      const labels = block.querySelectorAll("label");
-      labels.forEach((l) => l.classList.remove("correct", "incorrect"));
-
-      if (selected) {
-        const answerIndex = parseInt(selected.value);
-        if (answerIndex === quizData[i].correct) {
-          labels[answerIndex].classList.add("correct");
-          score++;
+        if (selected) {
+          const answerIndex = parseInt(selected.value);
+          if (answerIndex === quizData[i].correct) {
+            labels[answerIndex].classList.add("correct");
+            score++;
+          } else {
+            labels[answerIndex].classList.add("incorrect");
+            labels[quizData[i].correct].classList.add("correct");
+          }
         } else {
-          labels[answerIndex].classList.add("incorrect");
           labels[quizData[i].correct].classList.add("correct");
         }
-      } else {
-        labels[quizData[i].correct].classList.add("correct");
-      }
-    });
+      });
 
-    document.getElementById("result").textContent =
-      `✅ Du hast ${score} von ${quizData.length} Fragen richtig beantwortet.`;
-  }
+      document.getElementById("result").textContent =
+        `✅ Du hast ${score} von ${quizData.length} Fragen richtig beantwortet.`;
+    }
 
-  loadQuiz();
-</script>
+    loadQuiz();
+  </script>
+</body>
+</html>
